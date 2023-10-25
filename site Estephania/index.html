@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Título</title>
+</head>
+
+<body>
+  <section id="contentAlign">
+    <div id="content">
+      <header class="contentHeader">
+        <img width="40px" src="sauce/logo.png" alt="logo" />
+        <h1>Formulário</h1>
+      </header>
+      <form id="contForm">
+        <div>
+          <label class="labelForm">Nome do conteúdo:</label>
+          <input class="inputForm" maxlength="23" required id="atividade" type="text" placeholder="Escreva aqui"
+            name="contName" />
+        </div>
+        <div>
+          <label class="labelForm">Peso em gramas:</label>
+          <input class="inputForm" min="0" value="" required  type="number" name="contWeight" />
+        </div>
+        <div>
+            <label class="labelForm">O produto é fragil?</label>
+            <input class="inputForm" type="checkbox" name="contFragile" />
+          </div>
+          <div>
+            <label class="labelForm">Data de expiro:</label>
+            <input class="inputForm" min="0" value="" required type="date" name="contExpDate" />
+        </div>
+        <div style="display: flex; align-items: center;">
+          <button class="buttonsForm" id="subButton" type="submit">
+            Enviar
+          </button>
+          <button class="buttonsForm" type="submit" id="cleanButton">Limpar</button>
+          <div id="warning"></div>
+        </div>
+      </form>
+      <table>
+        <thead>
+          <th>Conteúdo</th>
+          <th>Peso</th>
+          <th>Fragil?</th>
+          <th>Data de registro</th>
+          <th>Data de expiro</th>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <td>Total</td>
+          <td id="totalPeso">---</td>
+          <td id="aprovacaoMedia">---</td>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
