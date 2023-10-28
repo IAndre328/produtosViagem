@@ -78,12 +78,7 @@ html, body {
 #nota {
     width: 50px;
 }
-.aprovado{
-    background-color: rgba( 0, 255, 0, 0.5);
-}
-.reprovado{
-    background-color: rgba( 255, 0, 0, 0.5);
-}
+
 
 table {
     display: flex;
