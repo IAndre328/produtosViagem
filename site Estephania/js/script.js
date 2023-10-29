@@ -3,7 +3,7 @@
 const subButton = document.getElementById('subButton'); //variavel constante, botao de submit
 const cleanButton = document.getElementById('cleanButton'); //variavel constante, botao para limpar
 const tableBody = document.querySelector('tbody'); //variavel constante, corpo da tabela
-
+let dataPc;
 
 const dataAtual = () => {
     setInterval(() => {
@@ -11,7 +11,7 @@ const dataAtual = () => {
         const ano = data.getFullYear();
         const mes = data.getMonth() + 1; // Os meses começam em 0, então adicionamos 1.
         const dia = data.getDate();
-        return `${ano}-${mes}-${dia}`
+        dataPc = `${ano}-${mes}-${dia}`
     }, 5000);
 }
 
@@ -28,7 +28,7 @@ function verificarDados(event){
     let fragile = form.contFragile.checked;
     let expDate = form.contExpDate.value;
 
-    console.log(fragile)
+    console.log(expDate,dataPc)
 
     let camposErros = false;
 
@@ -37,7 +37,7 @@ function verificarDados(event){
             camposErros = true;
         }
     });
-    if (expDate < dataAtual || weight <= 0){
+    if (expDate < dataPc || weight <= 0){
         camposErros = true;
     }
 
@@ -46,10 +46,26 @@ function verificarDados(event){
     } else {
         adicionarProduto(name,weight,fragile,expDate);
     }
+    console.log(camposErros)
 }
 function adicionarProduto(nome,peso,fragil,expiro){
-    
-    
+
+    tableBody.insertAdjacentHTML("afterbegin", 
+    `<tr contenteditable> 
+        <td>${nome}</td> 
+        <td>${peso}</td> 
+        <td>${fragil}</td>
+        <td>${dataPc}</td> 
+        <td>${expiro}</td> 
+        <td><button class="excluir" onclick=removerProduto(this)></button></td> 
+    </tr>`
+    ); //insere um codigo html abaixo de outro
+
+}
+
+function removerProduto(elemento){
+    console.log(elemento)
+    elemento.parentElement.parentElement.remove();
 }
 
 
